@@ -1,5 +1,5 @@
 import express from "express"
-import { login,register,logout, sendotp, verfiyotp} from "../controller/authcontroller.js";
+import { login,register,logout, sendotp, verfiyotp, sendresetotp, verifyresetotp} from "../controller/authcontroller.js";
 import userAuth from "../middleware/middleware.js";
 const authRouter = express.Router();
 
@@ -8,5 +8,7 @@ authRouter.post('/login',login)
 authRouter.post('/logout',logout)
 authRouter.post('/sendOtp',userAuth,sendotp)
 authRouter.post('/verifyOtp',userAuth,verfiyotp)
+authRouter.post('/resetpassword',sendresetotp)
+authRouter.post('/conformpassword',verifyresetotp)
 
 export default authRouter
